@@ -10,14 +10,19 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:type-plugin.convertToArrowFunction"
+		"onCommand:type-plugin.convertToArrowFunction",
+		"onCommand:type-plugin.camel-case"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
 				"command": "type-plugin.convertToArrowFunction",
-				"title": "convertToArrowFunction"
+				"title": "Convert To Arrow Function"
+			},
+			{
+				"command": "type-plugin.camel-case",
+				"title": "Convert To CamelCase"
 			}
 		]
 	},
@@ -49,6 +54,8 @@
 		"@babel/traverse": "^7.10.1",
 		"@babel/types": "^7.10.2",
 		"@types/babel__generator": "^7.6.1",
-		"@types/babel__traverse": "^7.0.12"
+		"@types/babel__traverse": "^7.0.12",
+		"@types/lodash": "^4.14.155",
+		"lodash": "^4.17.15"
 	}
 }

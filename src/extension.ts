@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import { transform } from './transform';
+import { ConvertToCamelcase } from './ConvertToCamelcase';
 
 
 export function activate(context: vscode.ExtensionContext) {
@@ -16,9 +17,17 @@ export function activate(context: vscode.ExtensionContext) {
 		write(transformCode);
 	});
 
-	context.subscriptions.push(disposable);
-}
+	let disposable1 = vscode.commands.registerCommand('type-plugin.camel-case', () => {
 
+		// vscode.window.showInformationMessage('Hello World from type-plugin!');
+		const code = readCode();
+		const transformCode = ConvertToCamelcase(code);
+		write(transformCode);
+	});
+	context.subscriptions.push(disposable);
+	context.subscriptions.push(disposable1);
+
+}
 function readCode():string {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
