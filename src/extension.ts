@@ -1,21 +1,28 @@
 import * as vscode from 'vscode';
 import { transform } from './transform';
 import { ConvertToCamelcase } from './ConvertToCamelcase';
+import { convertVarToLetFunction } from './convertVarToLetFunction';
+import { ClassNameFirstLetterToCapsFunction } from './ClassNameFirstLetterToCapsFunction';
+import { InterfaceNameFirstLetterToCapsFunction } from './InterfaceNameFirstLetterToCapsFunction';
 
 
 export function activate(context: vscode.ExtensionContext) {
 
 	
 	console.log('Congratulations, your extension "type-plugin" is now active!');
-
-	
 	let disposable = vscode.commands.registerCommand('type-plugin.convertToArrowFunction', () => {
 
-		// vscode.window.showInformationMessage('Hello World from type-plugin!');
+		try {
+			// vscode.window.showInformationMessage('Hello World from type-plugin!');
 		const code = readCode();
 		const transformCode = transform(code);
 		write(transformCode);
+		} catch (error) {
+			console.log(error);
+			
+		}
 	});
+
 
 	let disposable1 = vscode.commands.registerCommand('type-plugin.camel-case', () => {
 
@@ -24,8 +31,40 @@ export function activate(context: vscode.ExtensionContext) {
 		const transformCode = ConvertToCamelcase(code);
 		write(transformCode);
 	});
+
+	let convertVarToLet = vscode.commands.registerCommand('type-plugin.convertVarToLet', () => {
+
+		const code = readCode();
+		const transformCode = convertVarToLetFunction(code);
+		write(transformCode);
+	});
+
+	let convertClassNameFirstLetterToCaps = vscode.commands.registerCommand('type-plugin.convertClassNameFirstLetterToCaps', () => {
+
+		const code = readCode();
+		const transformCode = ClassNameFirstLetterToCapsFunction(code);
+		write(transformCode);
+	});
+	
+	let convertInterfaceNameFirstLetterToCaps = vscode.commands.registerCommand('type-plugin.convertInterfaceNameFirstLetterToCaps', () => {
+
+		try {
+			const code = readCode();
+		const transformCode = InterfaceNameFirstLetterToCapsFunction(code);
+		write(transformCode);
+		} catch (error) {
+			console.log(error);
+			
+		}
+	});
+
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disposable1);
+	context.subscriptions.push(convertVarToLet);
+	context.subscriptions.push(convertClassNameFirstLetterToCaps);
+	context.subscriptions.push(convertInterfaceNameFirstLetterToCaps);
+
+
 
 }
 function readCode():string {

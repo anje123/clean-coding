@@ -6,8 +6,12 @@ import * as t from '@babel/types';
 
 
 export function transform(code: string): string {
-	const ast = parse(code);
-	traverse(ast, {
+	const ast = parse(code, {      
+        plugins: [
+          "typescript"
+		]});
+
+			traverse(ast, {
 		FunctionDeclaration(path){
 			path.replaceWith(toArrowFunction(path.node));
 		}

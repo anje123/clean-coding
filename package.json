@@ -11,20 +11,53 @@
 	],
 	"activationEvents": [
 		"onCommand:type-plugin.convertToArrowFunction",
-		"onCommand:type-plugin.camel-case"
+		"onCommand:type-plugin.camel-case",
+		"onCommand:type-plugin.convertVarToLet",
+		"onCommand:type-plugin.convertClassNameFirstLetterToCaps",
+		"onCommand:type-plugin.convertInterfaceNameFirstLetterToCaps"
+
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "type-plugin.convertToArrowFunction",
-				"title": "Convert To Arrow Function"
-			},
-			{
 				"command": "type-plugin.camel-case",
 				"title": "Convert To CamelCase"
+			},
+			{
+				"command": "type-plugin.convertToArrowFunction",
+				"title": "Convert To Variable Declaration"
+			},
+			{
+				"command": "type-plugin.convertVarToLet",
+				"title": "Convert Var To Let"
+			},
+			{
+				"command": "type-plugin.convertClassNameFirstLetterToCaps",
+				"title": "Convert Class Name To Standard"
+			},
+			{
+				"command": "type-plugin.convertInterfaceNameFirstLetterToCaps",
+				"title": "Convert interface Name To Standard"
 			}
-		]
+		],
+		"keybindings": [
+			{
+			  "command": "type-plugin.camel-case",
+			  "key": "alt+shift+enter",
+			  "when": "editorTextFocus"
+			},
+			{
+				"command": "type-plugin.convertToArrowFunction",
+				"key": "alt+enter",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "type-plugin.convertVarToLet",
+				"key": "alt+c",
+				"when": "editorTextFocus"
+			}
+		]	
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
