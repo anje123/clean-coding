@@ -4,6 +4,8 @@ import { ConvertToCamelcase } from './ConvertToCamelcase';
 import { convertVarToLetFunction } from './convertVarToLetFunction';
 import { ClassNameFirstLetterToCapsFunction } from './ClassNameFirstLetterToCapsFunction';
 import { InterfaceNameFirstLetterToCapsFunction } from './InterfaceNameFirstLetterToCapsFunction';
+import { addBracesToArrowFunction } from './addBracesToArrowFunction';
+import { addBracesToIfStatement } from "./addBracesToIfStatement";
 
 
 export function activate(context: vscode.ExtensionContext) {
@@ -21,6 +23,26 @@ export function activate(context: vscode.ExtensionContext) {
 			console.log(error);
 			
 		}
+	});
+
+	let addBracesToArrow = vscode.commands.registerCommand('type-plugin.addBracesToArrow', () => {
+		try {
+			const code = readCode();
+			const transformCode = addBracesToArrowFunction(code);
+			write(transformCode);
+			} catch (error) {
+				console.log(error);	
+			}
+	});
+
+	let addBracesToIf = vscode.commands.registerCommand('type-plugin.addBracesToIfStatement', () => {
+		try {
+			const code = readCode();
+			const transformCode = addBracesToIfStatement(code);
+			write(transformCode);
+			} catch (error) {
+				console.log(error);	
+			}
 	});
 
 
@@ -63,6 +85,8 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(convertVarToLet);
 	context.subscriptions.push(convertClassNameFirstLetterToCaps);
 	context.subscriptions.push(convertInterfaceNameFirstLetterToCaps);
+	context.subscriptions.push(addBracesToIf);
+
 
 
 

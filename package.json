@@ -14,7 +14,10 @@
 		"onCommand:type-plugin.camel-case",
 		"onCommand:type-plugin.convertVarToLet",
 		"onCommand:type-plugin.convertClassNameFirstLetterToCaps",
-		"onCommand:type-plugin.convertInterfaceNameFirstLetterToCaps"
+		"onCommand:type-plugin.convertInterfaceNameFirstLetterToCaps",
+		"onCommand:type-plugin.addBracesToArrow",
+		"onCommand:type-plugin.addBracesToIfStatement"
+
 
 	],
 	"main": "./out/extension.js",
@@ -23,6 +26,14 @@
 			{
 				"command": "type-plugin.camel-case",
 				"title": "Convert To CamelCase"
+			},
+			{
+				"command": "type-plugin.addBracesToArrow",
+				"title": "Add Braces To Arrow Function"
+			},
+			{
+				"command": "type-plugin.addBracesToIfStatement",
+				"title": "Add Braces To If Statement"
 			},
 			{
 				"command": "type-plugin.convertToArrowFunction",
