@@ -1,6 +1,6 @@
-# type-plugin README
+# CLEAN CODING [MICROSOFT VSCODE EXTENSION]
 
-This is the README for your extension "type-plugin". After writing up a brief description, we recommend including the following sections.
+clean coding is a Visual Studio Code extension that helps with improvement capabilities and also brings you automated refactorings for JavaScript and TypeScript, which make sure that the code you write is accurate and can stand the test of time.
 
 ## Features
 
@@ -9,57 +9,31 @@ Describe specific features of your extension including screenshots of your exten
 For example if there is an image subfolder under your extension project workspace:
 
 \!\[feature X\]\(images/feature-x.png\)
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
+## Tools Used
 
 This extension contributes the following settings:
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* `@babel/parser` : a parser of Babel, parses source code into AST.
+* `babel-eslint` : Transformers transforms AST into another AST in sequence. and generates JavaScript and Typescript code from the  final AST.
+* `@babel/types`
+* `lodash`
 
-## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Available Commands
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+| Commands | Key Binding            | Quick Fix       |
+| ----------- | --------------- | --------- |
+|Add Braces To Arrow Function    | alt+b          | Yes      |
+|Convert Function To Variable Declaration    | alt+a          | Yes      |
+|Convert Var To Let    | alt+v          | Yes      |
+|Add Braces To If Statement   | alt+i          | Yes      |
+|Convert Function Name To CamelCase   | shift+c          | Yes      |
+|Convert Interface Name To PascalCase   | shift+i          | Yes      |
+|Convert Class Name To PascalCase   | shift+alt+c          | Yes      |
 
 **Enjoy!**
