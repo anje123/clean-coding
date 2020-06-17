@@ -13,7 +13,7 @@ export function ConvertToCamelcase(code: string): string {
 		
 	traverse(ast, {
 		FunctionDeclaration(path) {
-           //  path.node.id.name =  _.camelCase(path.node.id.name);            
+          path.node.id.name =  _.camelCase(path.node.id.name);            
       }
 	});
 	return generate(ast).code;

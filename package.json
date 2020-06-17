@@ -16,7 +16,8 @@
 		"onCommand:type-plugin.convertClassNameFirstLetterToCaps",
 		"onCommand:type-plugin.convertInterfaceNameFirstLetterToCaps",
 		"onCommand:type-plugin.addBracesToArrow",
-		"onCommand:type-plugin.addBracesToIfStatement"
+		"onCommand:type-plugin.addBracesToIfStatement",
+		"onLanguage:typescript"
 
 
 	],
@@ -25,7 +26,7 @@
 		"commands": [
 			{
 				"command": "type-plugin.camel-case",
-				"title": "Convert To CamelCase"
+				"title": "Convert Function Name To CamelCase"
 			},
 			{
 				"command": "type-plugin.addBracesToArrow",
@@ -37,7 +38,7 @@
 			},
 			{
 				"command": "type-plugin.convertToArrowFunction",
-				"title": "Convert To Variable Declaration"
+				"title": "Convert Function To Variable Declaration"
 			},
 			{
 				"command": "type-plugin.convertVarToLet",
@@ -45,27 +46,52 @@
 			},
 			{
 				"command": "type-plugin.convertClassNameFirstLetterToCaps",
-				"title": "Convert Class Name To Standard"
+				"title": "Convert Class Name To PascalCase"
 			},
 			{
 				"command": "type-plugin.convertInterfaceNameFirstLetterToCaps",
-				"title": "Convert interface Name To Standard"
+				"title": "Convert Interface Name To PascalCase"
 			}
 		],
 		"keybindings": [
 			{
+				"command": "type-plugin.convertInterfaceNameFirstLetterToCaps",
+				"key": "shift+i",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "type-plugin.convertClassNameFirstLetterToCaps",
+				"key": "shift+alt+c",
+				"when": "editorTextFocus"
+			},
+			{
 			  "command": "type-plugin.camel-case",
-			  "key": "alt+shift+enter",
+			  "key": "shift+c",
 			  "when": "editorTextFocus"
 			},
 			{
+				"command": "type-plugin.addBracesToIfStatement",
+				"key": "alt+i",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "type-plugin.camel-case",
+				"key": "alt+c",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "type-plugin.addBracesToArrow",
+				"key": "alt+b",
+				"when": "editorTextFocus"
+			},
+			{
 				"command": "type-plugin.convertToArrowFunction",
-				"key": "alt+enter",
+				"key": "alt+a",
 				"when": "editorTextFocus"
 			},
 			{
 				"command": "type-plugin.convertVarToLet",
-				"key": "alt+c",
+				"key": "alt+v",
 				"when": "editorTextFocus"
 			}
 		]	

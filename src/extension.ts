@@ -11,6 +11,12 @@ import { addBracesToIfStatement } from "./addBracesToIfStatement";
 export function activate(context: vscode.ExtensionContext) {
 
 	
+	const fixer = vscode.languages.registerCodeActionsProvider("typescript", fixProvider, {
+        providedCodeActionKinds: [vscode.CodeActionKind.QuickFix]
+      });
+    context.subscriptions.push(fixer);
+
+
 	console.log('Congratulations, your extension "type-plugin" is now active!');
 	let disposable = vscode.commands.registerCommand('type-plugin.convertToArrowFunction', () => {
 
@@ -86,11 +92,8 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(convertClassNameFirstLetterToCaps);
 	context.subscriptions.push(convertInterfaceNameFirstLetterToCaps);
 	context.subscriptions.push(addBracesToIf);
-
-
-
-
 }
+
 function readCode():string {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
@@ -113,5 +116,16 @@ function write(code:string) {
 	edit.set(editor.document.uri,[updateCode]);
 	vscode.workspace.applyEdit(edit);
 }
+
+
+const fixProvider = {
+    provideCodeActions: function(document: vscode.TextDocument, range: vscode.Range, context: vscode.CodeActionContext, token: vscode.CancellationToken) {
+		return [{ title: "Convert To Variable Declaration", command: "type-plugin.convertToArrowFunction"},
+			   { title: "Add Braces To If Statement", command: "type-plugin.addBracesToIfStatement"},
+			   { title: "Add Braces To Arrow Function", command: "type-plugin.addBracesToArrow"},
+			   {title: "Convert To Function Name To CamelCase", command: "type-plugin.camel-case"}];
+    }
+};
+
 
 export function deactivate() {}
