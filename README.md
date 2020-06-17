@@ -4,15 +4,7 @@ clean coding is a Visual Studio Code extension that helps with improvement capab
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
 ![Alt Text](https://github.com/anje123/clean-coding/blob/master/docs/20200617_153713.gif)
-
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
 ## Tools Used
 
