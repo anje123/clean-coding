@@ -126,6 +126,6 @@
 		"@types/babel__generator": "^7.6.1",
 		"@types/babel__traverse": "^7.0.12",
 		"@types/lodash": "^4.14.155",
-		"lodash": "^4.17.15"
+		"lodash": "^4.17.21"
 	}
 }
